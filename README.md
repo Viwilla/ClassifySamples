@@ -3,7 +3,7 @@
   
   
 	脚本功能:
-		根据卡巴斯基的扫描结果对样本进行分类整理，将整理后的样本移动到"Samples"目录下（上传ftp后删除）。
+		根据卡巴斯基的扫描结果对样本进行分类整理，将整理后的样本移动到"Samples"目录下（上传ftp后删除本地文件）。
 		存放格式:.\Samples\FileType\ScanResult\File
 
 	用法:
@@ -12,7 +12,7 @@
 		- 如果程序被意外中断，可以使用“python Classify report.txt”处理完已经扫描完的样本之后再继续用上面的命令操作。
  
 	注意:
-		1.程序运行前请将文件MD5值命名，参考MD5Sig。
+		1.程序运行前请将文件MD5值命名，参考https://github.com/Viwilla/GetMD5
 		2.此脚本适用于装有卡巴的32位winxp，其他系统环境需要到脚本里修改一下相关参数。主要是avp.com的绝对路径(函数AVPSca			  n()中)
 
 	开发环境:
@@ -43,7 +43,7 @@
 	@File storage format: .\Samples\FileType\ScanResult\File
 	@use : python Classfy file/folder
 	@Attention:
-		  - Before the program runs, you need to name the file in MD5.See the project "MD5Sig"
+		  - Before the program runs, you need to name the file in MD5.See the project https://github.com/Viwilla/GetMD5
 		  - Configure related information in "GlobalConfig.py" first
 		  - If something wrong happens that causes the program to be interrupted,use "python Classify report.txt" to 			process the sample that has been scanned,then use "python Classify.py" to processing other samples.
 
