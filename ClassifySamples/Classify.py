@@ -8,7 +8,7 @@
   - If something wrong happens that causes the program to be interrupted,use "python Classify report.txt" to process the sample that has been scanned,then use 
     "python Classify.py" to processing other samples.
 
-Thanks for online resource "FtpFileUpload.py" and the author of the program!
+Thanks for the online resource "FtpFileUpload.py" and the author of the program!
 
 @Author:Vi
 @email:
