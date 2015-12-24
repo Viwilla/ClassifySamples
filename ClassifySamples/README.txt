@@ -1,33 +1,33 @@
-½Å±¾¹¦ÄÜ:
-    ¸ù¾İ¿¨°ÍË¹»ùµÄÉ¨Ãè½á¹û¶ÔÑù±¾½øĞĞ·ÖÀàÕûÀí£¬½«ÕûÀíºóµÄÑù±¾ÒÆ¶¯µ½"Samples"Ä¿Â¼ÏÂ£¨ÉÏ´«ftpºóÉ¾³ı£©¡£
-    ´æ·Å¸ñÊ½:.\Samples\FileType\ScanResult\File
+è„šæœ¬åŠŸèƒ½:
+    æ ¹æ®å¡å·´æ–¯åŸºçš„æ‰«æç»“æœå¯¹æ ·æœ¬è¿›è¡Œåˆ†ç±»æ•´ç†ï¼Œå°†æ•´ç†åçš„æ ·æœ¬ç§»åŠ¨åˆ°"Samples"ç›®å½•ä¸‹ï¼ˆä¸Šä¼ ftpååˆ é™¤ï¼‰ã€‚
+    å­˜æ”¾æ ¼å¼:.\Samples\FileType\ScanResult\File
 
-ÓÃ·¨:
-   - GlobalConfig.py ÀïÅäÖÃÊı¾İ¿âĞÅÏ¢ºÍftpĞÅÏ¢
-   - python Classify.py ´ıÉ¨ÃèÎÄ¼ş/ÎÄ¼ş¼Ğ
-   - Èç¹û³ÌĞò±»ÒâÍâÖĞ¶Ï£¬¿ÉÒÔÊ¹ÓÃ¡°python Classify report.txt¡±´¦ÀíÍêÒÑ¾­É¨ÃèÍêµÄÑù±¾Ö®ºóÔÙ¼ÌĞøÓÃÉÏÃæµÄÃüÁî²Ù×÷¡£
+ç”¨æ³•:
+   - GlobalConfig.py é‡Œé…ç½®æ•°æ®åº“ä¿¡æ¯å’Œftpä¿¡æ¯
+   - python Classify.py å¾…æ‰«ææ–‡ä»¶/æ–‡ä»¶å¤¹
+   - å¦‚æœç¨‹åºè¢«æ„å¤–ä¸­æ–­ï¼Œå¯ä»¥ä½¿ç”¨â€œpython Classify report.txtâ€å¤„ç†å®Œå·²ç»æ‰«æå®Œçš„æ ·æœ¬ä¹‹åå†ç»§ç»­ç”¨ä¸Šé¢çš„å‘½ä»¤æ“ä½œã€‚
 
-×¢Òâ:
-   1.³ÌĞòÔËĞĞÇ°Çë½«ÎÄ¼şMD5ÖµÃüÃû£¬²Î¿¼MD5Sig¡£
-   2.´Ë½Å±¾ÊÊÓÃÓÚ×°ÓĞ¿¨°ÍµÄ32Î»winxp£¬ÆäËûÏµÍ³»·¾³ĞèÒªµ½½Å±¾ÀïĞŞ¸ÄÒ»ÏÂÏà¹Ø²ÎÊı¡£Ö÷ÒªÊÇavp.comµÄ¾ø¶ÔÂ·¾¶(º¯ÊıAVPScan()ÖĞ)
+æ³¨æ„:
+   1.ç¨‹åºè¿è¡Œå‰è¯·å°†æ–‡ä»¶MD5å€¼å‘½åï¼Œå‚è€ƒhttps://github.com/Viwilla/GetMD5ã€‚
+   2.æ­¤è„šæœ¬é€‚ç”¨äºè£…æœ‰å¡å·´çš„32ä½winxpï¼Œå…¶ä»–ç³»ç»Ÿç¯å¢ƒéœ€è¦åˆ°è„šæœ¬é‡Œä¿®æ”¹ä¸€ä¸‹ç›¸å…³å‚æ•°ã€‚ä¸»è¦æ˜¯avp.comçš„ç»å¯¹è·¯å¾„(å‡½æ•°AVPScan()ä¸­)
 
-¿ª·¢»·¾³:
+å¼€å‘ç¯å¢ƒ:
    python 2.7 + magic + MySQLdb + ftplib
-   Winxp 32Î»
+   Winxp 32ä½
 
 
-°²×°magic Ä£¿é:
-1¡¢°²×°pycparser-2.14  Á´½Ó: https://pypi.python.org/pypi/pycparser
-2¡¢°²×°VCForPython£¬Á´½Ó: http://aka.ms/vcpython27
-3¡¢°²×°cffiÄ£¿é£¬Á´½Ó: https://pypi.python.org/pypi/cffi/#downloads
-4¡¢°²×°libmagic  Á´½Ó: https://pypi.python.org/pypi/python-libmagic
-5¡¢°²×°file,°²×°Ö®ºóÏò»·¾³±äÁ¿pathÌí¼Ó: ..\GnuWin32\bin
-6¡¢°²×°magicÄ£¿é Á´½Ó: https://github.com/ahupp/python-magic
-²âÊÔ import magic³É¹¦
+å®‰è£…magic æ¨¡å—:
+1ã€å®‰è£…pycparser-2.14  é“¾æ¥: https://pypi.python.org/pypi/pycparser
+2ã€å®‰è£…VCForPythonï¼Œé“¾æ¥: http://aka.ms/vcpython27
+3ã€å®‰è£…cffiæ¨¡å—ï¼Œé“¾æ¥: https://pypi.python.org/pypi/cffi/#downloads
+4ã€å®‰è£…libmagic  é“¾æ¥: https://pypi.python.org/pypi/python-libmagic
+5ã€å®‰è£…file,å®‰è£…ä¹‹åå‘ç¯å¢ƒå˜é‡pathæ·»åŠ : ..\GnuWin32\bin
+6ã€å®‰è£…magicæ¨¡å— é“¾æ¥: https://github.com/ahupp/python-magic
+æµ‹è¯• import magicæˆåŠŸ
 More details see https://github.com/ahupp/python-magic
 
 
-MySQL½¨±íÓï¾ä£º
+MySQLå»ºè¡¨è¯­å¥ï¼š
 CREATE TABLE `VirusSample` (
   `SampleMD5` varchar(255) NOT NULL,
   `SampleType` varchar(1024) DEFAULT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE `VirusSample` (
 @File storage format: .\Samples\FileType\ScanResult\File
 @use : python Classfy file/folder
 @Attention:
-  - Before the program runs, you need to name the file in MD5.See the project "MD5Sig"
+  - Before the program runs, you need to name the file in MD5.See the project https://github.com/Viwilla/GetMD5
   - Configure related information in "GlobalConfig.py" first
   - If something wrong happens that causes the program to be interrupted,use "python Classify report.txt" to process the sample that has been scanned,then use 
     "python Classify.py" to processing other samples.
