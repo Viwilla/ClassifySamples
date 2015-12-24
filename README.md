@@ -47,11 +47,13 @@
 		  - Configure related information in "GlobalConfig.py" first
 		  - If something wrong happens that causes the program to be interrupted,use "python Classify report.txt" to 			process the sample that has been scanned,then use "python Classify.py" to processing other samples.
 
-	Thanks for online resource "FtpFileUpload.py" and the author of the program!
+	@Thanks：
+		-https://github.com/ahupp/python-magic
+		-I didn't find the author of "FtpFileUpload.py" ，thanks for his program!
 
 	
 	@Author:Vi
 	@email:
-	  - 3320163319@qq.com
-	  - viwilla@outlook.com
+		  - 3320163319@qq.com
+		  - viwilla@outlook.com
 	@Time:2015/12/24
