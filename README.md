@@ -2,24 +2,24 @@
   Using Kaspersky's scan results  to classify samples
 
 
-脚本功能:
+  脚本功能:
 	根据卡巴斯基的扫描结果对样本进行分类整理，将整理后的样本移动到"Samples"目录下（上传ftp后删除）。
 	存放格式:.\Samples\FileType\ScanResult\File
 
-用法:
+  用法:
 	- GlobalConfig.py 里配置数据库信息和ftp信息
 	- python Classify.py 待扫描文件/文件夹
 	- 如果程序被意外中断，可以使用“python Classify report.txt”处理完已经扫描完的样本之后再继续用上面的命令操作。
-
-注意:
+ 
+  注意:
 	1.程序运行前请将文件MD5值命名，参考MD5Sig。
 	2.此脚本适用于装有卡巴的32位winxp，其他系统环境需要到脚本里修改一下相关参数。主要是avp.com的绝对路径(函数AVPScan()中)
 
-开发环境:
+  开发环境:
 	python 2.7 + magic + MySQLdb + ftplib
 	Winxp 32位
 
-安装magic 模块:
+  安装magic 模块:
 	1、安装pycparser-2.14  链接: https://pypi.python.org/pypi/pycparser
 	2、安装VCForPython，链接: http://aka.ms/vcpython27
 	3、安装cffi模块，链接: https://pypi.python.org/pypi/cffi/#downloads
