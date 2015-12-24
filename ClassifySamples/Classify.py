@@ -124,7 +124,7 @@ def Sort():
             try:
                 shutil.move(line[1],newpos)
                 print line[1] + "-->" + newpos
-                DIR = newpos.replace(".\\","/home/").replace("\\","/")
+                DIR = newpos.replace(".\\","/").replace("\\","/")
                 str = "INSERT INTO VirusSample(SampleMD5,SampleType,Samplepath)values('%s','%s','%s')"%(MD5,TYPE,DIR)
                 try:
                     cur.execute(str)
@@ -143,7 +143,7 @@ def Sort():
             try:
                 shutil.move(line[1],newpos)
                 print line[1] + "-->" + newpos
-                DIR = newpos.replace(".\\","/home/").replace("\\","/")
+                DIR = newpos.replace(".\\","/").replace("\\","/")
                 str = "INSERT INTO VirusSample(SampleMD5,SampleType,Samplepath)values('%s','%s','%s')"%(MD5,TYPE,DIR)
                 try:
                     cur.execute(str)
