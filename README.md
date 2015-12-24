@@ -1,12 +1,10 @@
 # ClassifySamples
   Using Kaspersky's scan results  to classify samples
-
-
-  脚本功能:
+	脚本功能:
 	根据卡巴斯基的扫描结果对样本进行分类整理，将整理后的样本移动到"Samples"目录下（上传ftp后删除）。
 	存放格式:.\Samples\FileType\ScanResult\File
 
-  用法:
+	 用法:
 	- GlobalConfig.py 里配置数据库信息和ftp信息
 	- python Classify.py 待扫描文件/文件夹
 	- 如果程序被意外中断，可以使用“python Classify report.txt”处理完已经扫描完的样本之后再继续用上面的命令操作。
