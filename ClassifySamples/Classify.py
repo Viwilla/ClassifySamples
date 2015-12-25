@@ -93,6 +93,7 @@ def Sort():
     global DIR
     f = open ("report.txt","r")
     lines = f.readlines()
+    count0 = 0
     for line in lines[17:]:
         dirname = ".\\Samples\\"
         line = line.strip("\n")
@@ -115,8 +116,11 @@ def Sort():
             traceback.print_exc()
 
         if line[2] == "detected":
-            n = line[3].rindex('.')
-            newpos = dirname + line[3][0:n]
+            try:
+              n = line[3].rindex('.')
+              newpos = dirname + line[3][0:n]
+            except:
+              newpos = dirname + line[3]
             try:
                 mkdirs(newpos)
             except:
@@ -155,11 +159,12 @@ def Sort():
         
         global count
         count = count +1
-        if count > 500:
+        count0 = count0 +1
+        if count0 > 500:
             try:
                 os.system("python FtpFileUpload.py")
                 RemoveLocalFile(".\\Samples")
-                count = 0
+                count0 = 0
             except:
                 print "ftp upload error"
                 break
