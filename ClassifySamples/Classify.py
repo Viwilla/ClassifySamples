@@ -8,7 +8,7 @@
   - If something wrong happens that causes the program to be interrupted,use "python Classify report.txt" to process the sample that has been scanned,then use 
     "python Classify.py" to processing other samples.
 
-Thanks for online resource "FtpFileUpload.py" and the author of the program!
+Thanks for the online resource "FtpFileUpload.py" and the author of the program!
 
 @Author:Vi
 @email:
@@ -93,7 +93,10 @@ def Sort():
     f = open ("report.txt","r")
     lines = f.readlines()
     count0 = 0
+<<<<<<< HEAD
     #17
+=======
+>>>>>>> origin/master
     for line in lines[17:]:
         dirname = GC.dirname
         line = line.strip("\n")
@@ -121,10 +124,17 @@ def Sort():
         
         if line[2] == "detected":
             try:
+<<<<<<< HEAD
                 n = line[3].rindex('.')
                 newpos = dirname + line[3][0:n]
             except:
                 newpos = dirname + line[3]
+=======
+              n = line[3].rindex('.')
+              newpos = dirname + line[3][0:n]
+            except:
+              newpos = dirname + line[3]
+>>>>>>> origin/master
             try:
                 mkdirs(newpos)
             except:
@@ -133,7 +143,10 @@ def Sort():
                 shutil.move(line[1],newpos)
                 print line[1] + "-->" + newpos
                 DIR = newpos.replace(".\\","/").replace("\\","/")
+<<<<<<< HEAD
                 DIR = "/Samples" + DIR.split("Samples")[1]
+=======
+>>>>>>> origin/master
                 str = "INSERT INTO VirusSample(SampleMD5,SampleType,Samplepath)values('%s','%s','%s')"%(MD5,TYPE,DIR)
                 try:
                     cur.execute(str)
@@ -154,7 +167,10 @@ def Sort():
                 shutil.move(line[1],newpos)
                 print line[1] + "-->" + newpos
                 DIR = newpos.replace(".\\","/").replace("\\","/")
+<<<<<<< HEAD
                 DIR = "/Samples" + DIR.split("Samples")[1]
+=======
+>>>>>>> origin/master
                 str = "INSERT INTO VirusSample(SampleMD5,SampleType,Samplepath)values('%s','%s','%s')"%(MD5,TYPE,DIR)
                 try:
                     cur.execute(str)
@@ -170,6 +186,10 @@ def Sort():
         if count0 > 500:
             try:
                 os.system("python FtpFileUpload.py")
+<<<<<<< HEAD
+=======
+                RemoveLocalFile(".\\Samples")
+>>>>>>> origin/master
                 count0 = 0
             except:
                 print "ftp upload error"
