@@ -5,6 +5,7 @@
 用法:
    - GlobalConfig.py 里配置数据库信息和ftp信息
    - python Classify.py 待扫描文件/文件夹
+   - python report.txt
    - 如果程序被意外中断，可以使用“python Classify report.txt”处理完已经扫描完的样本之后再继续用上面的命令操作。
 
 注意:
@@ -15,18 +16,40 @@
    python 2.7 + magic + MySQLdb + ftplib
    Winxp 32位
 
-
+-------------------------------------------------------------------------------------
 安装magic 模块:
-1、安装pycparser-2.14  链接: https://pypi.python.org/pypi/pycparser
-2、安装VCForPython，链接: http://aka.ms/vcpython27
-3、安装cffi模块，链接: https://pypi.python.org/pypi/cffi/#downloads
-4、安装libmagic  链接: https://pypi.python.org/pypi/python-libmagic
-5、安装file,安装之后向环境变量path添加: ..\GnuWin32\bin
-6、安装magic模块 链接: https://github.com/ahupp/python-magic
-测试 import magic成功
-More details see https://github.com/ahupp/python-magic
+	1、安装pycparser-2.14  链接: https://pypi.python.org/pypi/pycparser
+	2、安装VCForPython，链接: http://aka.ms/vcpython27
+	3、安装cffi模块，链接: https://pypi.python.org/pypi/cffi/#downloads
+	4、安装libmagic  链接: https://pypi.python.org/pypi/python-libmagic
+	5、安装file,安装之后向环境变量path添加: ..\GnuWin32\bin
+	6、安装magic模块 链接: https://github.com/ahupp/python-magic
+        测试 import magic成功即可
+-------------------------------------------------------------------------------------
+magic使用：
+	>>> import magic
+	>>> magic.from_file("testdata/test.pdf")
+	'PDF document, version 1.2'
+	>>> magic.from_buffer(open("testdata/test.pdf").read(1024))
+	'PDF document, version 1.2'
+	>>> magic.from_file("testdata/test.pdf", mime=True)
+	'application/pdf'
+	-----------------------------------------------------------------------------
+	>>> f = magic.Magic(uncompress=True)
+	>>> f.from_file('testdata/test.gz')
+	'ASCII text (gzip compressed data, was "test", last modified: Sat Jun 28
+	21:32:52 2008, from Unix)'
+	More details see https://github.com/ahupp/python-magic
+	-----------------------------------------------------------------------------
+	>>> f = magic.Magic(mime=True, uncompress=True)
+	>>> f.from_file('testdata/test.gz')
+	'text/plain'
+	-----------------------------------------------------------------------------
+	如果出现'MagicException: could not find any magic files!'错误，使用以下方法：
+        >>>f = magic.Magic(magic_file="C:\Program Files\GnuWin32\share\misc\magic")
+    	>>>f.from_file(file)
 
-
+-------------------------------------------------------------------------------------
 MySQL建表语句：
 CREATE TABLE `VirusSample` (
   `SampleMD5` varchar(255) NOT NULL,
@@ -35,7 +58,7 @@ CREATE TABLE `VirusSample` (
   PRIMARY KEY (`SampleMD5`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 	
-
+-------------------------------------------------------------------------------------
 @Function:Using Kaspersky's scan results  to classify samples
 @File storage format: .\Samples\FileType\ScanResult\File
 @use : python Classfy file/folder

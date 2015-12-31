@@ -52,8 +52,7 @@ def ConnectDB(h, u ,pa,d,p):
 
 def FileType(file):
     global MD5
-    MD5 = file.split("\\")[-1]
-    #the path of magic
+    MD5 = file.split("\\")[-1][-32:]
     f = magic.Magic(magic_file="C:\Program Files\GnuWin32\share\misc\magic")
     type = f.from_file(file)
     global TYPE
@@ -93,30 +92,39 @@ def Sort():
     global DIR
     f = open ("report.txt","r")
     lines = f.readlines()
+    count0 = 0
+    #17
     for line in lines[17:]:
-        dirname = ".\\Samples\\"
+        dirname = GC.dirname
         line = line.strip("\n")
         line = line.replace("\t","  ")
         line = line.split("  ")
         a = re.compile(r'\//.*')
         line[1] = a.sub('',line[1])
         line[1] = line[1].strip()
+        newname = line[1].replace("\\","_")
         if len(line) > 5:
             if line[5] == " completed":
                 break
-
+        elif len(line) < 3:
+            continue
         elif line[2] == "skipped":
             continue
 
         try:
             ftype = FileType(line[1])
-            dirname = dirname + ftype + "\\"
         except Exception,e:
+            continue
+            ftype = "UNKNOW"
             traceback.print_exc()
-
+        dirname = dirname + ftype + "\\"
+        
         if line[2] == "detected":
-            n = line[3].rindex('.')
-            newpos = dirname + line[3][0:n]
+            try:
+                n = line[3].rindex('.')
+                newpos = dirname + line[3][0:n]
+            except:
+                newpos = dirname + line[3]
             try:
                 mkdirs(newpos)
             except:
@@ -124,11 +132,13 @@ def Sort():
             try:
                 shutil.move(line[1],newpos)
                 print line[1] + "-->" + newpos
-                DIR = newpos.replace(".\\","/home/").replace("\\","/")
+                DIR = newpos.replace(".\\","/").replace("\\","/")
+                DIR = "/Samples" + DIR.split("Samples")[1]
                 str = "INSERT INTO VirusSample(SampleMD5,SampleType,Samplepath)values('%s','%s','%s')"%(MD5,TYPE,DIR)
                 try:
                     cur.execute(str)
                     conn.commit()
+                    
                 except:
                     pass
             except:
@@ -143,7 +153,8 @@ def Sort():
             try:
                 shutil.move(line[1],newpos)
                 print line[1] + "-->" + newpos
-                DIR = newpos.replace(".\\","/home/").replace("\\","/")
+                DIR = newpos.replace(".\\","/").replace("\\","/")
+                DIR = "/Samples" + DIR.split("Samples")[1]
                 str = "INSERT INTO VirusSample(SampleMD5,SampleType,Samplepath)values('%s','%s','%s')"%(MD5,TYPE,DIR)
                 try:
                     cur.execute(str)
@@ -155,22 +166,22 @@ def Sort():
         
         global count
         count = count +1
-        if count > 500:
+        count0 = count0 +1
+        if count0 > 500:
             try:
                 os.system("python FtpFileUpload.py")
-                RemoveLocalFile(".\\Samples")
-                count = 0
+                count0 = 0
             except:
                 print "ftp upload error"
-                break
+                continue
     f.close()
     cur.close()
     conn.close()
-    os.remove("report.txt")
+    newname = "report" + newname
+    os.rename("report.txt",newname)
     if not sys.argv[1] == "report.txt":
         shutil.move(sys.argv[1],".\\Samples\\UNDETECTED")
     os.system("python FtpFileUpload.py")
-    RemoveLocalFile(".\\Samples")
     
 def AVPScan():
     str = "\"C:\\Program Files\\Kaspersky Lab\\Kaspersky Anti-Virus 16.0.0\\avp.com\" SCAN "

@@ -100,6 +100,7 @@ class MYFTP:
 		self.ftp.storbinary('STOR %s' %remotefile, file_handler)
 		file_handler.close()
 		debug_print(u'已传送: %s' %localfile)
+		os.remove(localfile)
 	def upload_files(self, localdir='./', remotedir = './'):
 		if not os.path.isdir(localdir):
 			return

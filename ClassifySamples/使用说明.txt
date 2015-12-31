@@ -1,0 +1,12 @@
+1、解压移动硬盘里的样本，密码infected
+2、用Total Comander以MD5批量重命名文件
+3、虚拟机winxp pro里连接移动设备 或开共享文件夹
+4、到“Globalconfig.py”里配置：
+    - 本地暂存分类信息的目录dirname
+    - ftp信息
+    - Database信息
+5、使用方法:
+    a. python Classify.py 待处理目录/文件（默认生成的报告名为"report.txt"）
+    b. - "C:\\Program Files\\Kaspersky Lab\\Kaspersky Anti-Virus 16.0.0\\avp.com\" SCAN 目录/文件 i1 /R:.\\reportname.txt”扫描文件生成报告
+       - python reportname.txt处理文件
+       - 同时可用python FtpFileUpload.py 来同步已分类好的样本
